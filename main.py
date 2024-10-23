@@ -1,6 +1,8 @@
 from flask import Flask, flash, render_template, redirect, request, url_for
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = 'makolindoMonstro' #Senha para os cookies de sessão
@@ -8,8 +10,8 @@ app.secret_key = 'makolindoMonstro' #Senha para os cookies de sessão
 #Configuração do servidor de e-mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'nathancielusinski@gmail.com'
-app.config['MAIL_PASSWORD'] = 'odrj jtum ytbc zaii'
+app.config['MAIL_USERNAME'] = os.getenv("APP_EMAIL")
+app.config['MAIL_PASSWORD'] = os.getenv("APP_PASSWORD")
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
@@ -31,7 +33,7 @@ def reset_password():
 
         #Preparação e envio do e-mail
         token = serial.dumps(email, salt='password_recovery')
-        msg = Message('Recuperação de senha', sender='nathancielusinski@gmail.com', recipients=[email])
+        msg = Message('Recuperação de senha', sender=os.getenv("APP_EMAIL"), recipients=[email])
         link = url_for('reset_password', token=token, _external=True)
         msg.body = f'Clique no link a seguir para redefinir sua senha: {link}'
         mail.send(msg)
