@@ -1,1 +1,1 @@
-# PassRecovery
+# Aplicação para desenvolvimento de sistema de recuperação de senha
