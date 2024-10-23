@@ -8,8 +8,8 @@ app.secret_key = 'makolindoMonstro' #Senha para os cookies de sessão
 #Configuração do servidor de e-mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'meu_email'
-app.config['MAIL_PASSWORD'] = 'minha_senha'
+app.config['MAIL_USERNAME'] = 'nathancielusinski@gmail.com'
+app.config['MAIL_PASSWORD'] = 'odrj jtum ytbc zaii'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
@@ -31,7 +31,7 @@ def reset_password():
 
         #Preparação e envio do e-mail
         token = serial.dumps(email, salt='password_recovery')
-        msg = Message('Recuperação de senha', sender='meu_email', recipients=[email])
+        msg = Message('Recuperação de senha', sender='nathancielusinski@gmail.com', recipients=[email])
         link = url_for('reset_password', token=token, _external=True)
         msg.body = f'Clique no link a seguir para redefinir sua senha: {link}'
         mail.send(msg)
