@@ -1,16 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Senha</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Recuperação de senha</h1>
-    <form method="POST">
-        <label for="password">Digite sua nova senha</label>
-        <input type="password" id="password" name="password" required />
-        <button type="submit">Redefinir</button>
-    </form>
+    <div class="container">
+        <h1>Recuperação de Senha</h1>
+        <form method="POST" class="form-container">
+            <label for="password">Digite sua nova senha</label>
+            <input type="password" id="password" name="password" placeholder="Sua nova senha" required />
+            <button type="submit">Redefinir Senha</button>
+        </form>
+        <p>Sua nova senha deve ter pelo menos 8 caracteres.</p>
+    </div>
 </body>
 </html>
